@@ -1,0 +1,38 @@
+class School:
+  def __init__(self, name, level, numberOfStudents):
+    self._name = name
+    self._level = level
+    self._numberOfStudents = numberOfStudents
+
+  @property
+  def name(self):
+    return self._name
+  
+  @property
+  def level(self):
+    return self._level
+  
+  @property
+  def numberOfStudents(self):
+    return self._numberOfStudents
+  
+  @numberOfStudents.setter
+  def numberOfStudents(self, num):
+    self._numberOfStudents = num
+  
+  def __repr__(self):
+    return(f"A {self.level} school name {self.name} with {self.numberOfStudents} students")
+
+class PrimarySchool(School):
+  def __init__(self, name, numberOfStudents, pickupPolicy):
+    super().__init__(name, "primary", numberOfStudents)
+    self.pickupPolicy = pickupPolicy
+    @property
+    def pickupPolicy(self):
+      return self._pickupPolicy
+
+
+e1 = School("codecademy", "middle", 50)
+print(e1)
+e2 = PrimarySchool("codecademy", 60, "Pickup Allowed")
+print(e2)
